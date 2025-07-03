@@ -37,7 +37,7 @@ In app1-backend/.env
 # === Google Gemini / Generative AI ===
 GOOGLE_API_KEY=your_google_gemini_api_key
 
-# === DuckDuckGo Custom Search (via Google CSE) ===
+# === google images Custom Search (via Google CSE) ===
 GOOGLE_CSE_API_KEY=your_google_cse_api_key
 GOOGLE_CSE_ID=your_google_cse_id
 
