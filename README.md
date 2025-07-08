@@ -1,95 +1,155 @@
 📊 Social Media Agent – Landing Platform
 
-This repository hosts the Landing App for our AI-powered Instagram automation tools built during our internship at Digital Dojo Pvt. Ltd.
+This repository hosts the Landing Platform for our AI-powered Instagram content creation and scheduling tools, developed during our internship at Digital Dojo Pvt. Ltd. in June 2025.
 
-Apps Overview:
-- CM Social Media Agent – React + Flask-based Instagram Scheduler
-- SR Social Media Agent – Streamlit-based Instagram Generator
+---
 
-────────────────────────────
-🧩 Folder Structure:
+PROJECT OVERVIEW
+
+This platform integrates two applications:
+
+* CM Social Media Agent – A React + Flask-based Instagram Scheduler with AI captioning and auto-posting.
+* SR Social Media Agent – A Streamlit-based Instagram Caption Generator using Gemini/OpenAI.
+
+---
+
+FOLDER STRUCTURE
 
 SAFINAL/
-├── landing-app/          # Main dashboard + login system
-├── app1-frontend/        # React frontend for App 1
-├── app1-backend/         # Flask backend with Gemini/OpenAI + Meta API
-├── SA_STREAMLIT/         # Streamlit caption generator (App 2)
+├── landing-app/       -> Main dashboard with Clerk authentication
+├── app1-frontend/     -> React frontend for App 1 (CM Instagram Scheduler)
+├── app1-backend/      -> Flask backend for App 1 (Gemini/OpenAI + Meta Graph API)
+├── SA\_STREAMLIT/      -> Streamlit app for App 2 (SR Instagram Caption Generator)
 
-────────────────────────────
-🚀 Features:
+---
 
-- AI-generated captions using Gemini or OpenAI
-- Image fetching via DuckDuckGo CSE
-- Instagram auto-posting and scheduling via Meta Graph API
-- Full-stack with modern design and routing
-- Clerk authentication + Vercel deployment
+FEATURES
 
-────────────────────────────
-🧪 Environment Variables Setup:
+* AI-generated Instagram captions using Gemini or OpenAI
+* Image fetching via Google CSE / DuckDuckGo
+* Auto-posting and scheduled posting using Meta Graph API
+* Interactive modern UI with Clerk authentication
+* Deployed with Vercel (frontend) + local backend
 
-In landing-app/.env
+---
 
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key_here
-VITE_BACKEND_URL=http://localhost:5000
+ENVIRONMENT VARIABLES SETUP
 
-In app1-backend/.env
+In landing-app/.env:
 
-# === Google Gemini / Generative AI ===
-GOOGLE_API_KEY=your_google_gemini_api_key
+VITE\_CLERK\_PUBLISHABLE\_KEY=your\_clerk\_publishable\_key\_here
+VITE\_BACKEND\_URL=[http://localhost:5000](http://localhost:5000)
 
-# === google images Custom Search (via Google CSE) ===
-GOOGLE_CSE_API_KEY=your_google_cse_api_key
-GOOGLE_CSE_ID=your_google_cse_id
+In app1-backend/.env:
 
-# === Instagram Auto Posting ===
-ACCESS_TOKEN=your_instagram_graph_api_access_token
-IG_USER_ID=your_instagram_user_id
+GOOGLE\_API\_KEY=your\_google\_gemini\_api\_key
+GOOGLE\_CSE\_API\_KEY=your\_google\_cse\_api\_key
+GOOGLE\_CSE\_ID=your\_google\_cse\_id
+ACCESS\_TOKEN=your\_instagram\_graph\_api\_access\_token
+IG\_USER\_ID=your\_instagram\_user\_id
+OPENAI\_API\_KEY=your\_openai\_api\_key
 
-# === OpenAI (Optional) ===
-OPENAI_API_KEY=your_openai_api_key
+Note: Use the provided `.env.example` files and never commit real credentials.
 
-────────────────────────────
-💻 Local Development:
+---
+
+HOW TO GET API KEYS
+
+1. Google Gemini API Key:
+
+   * Visit [https://makersuite.google.com/app](https://makersuite.google.com/app)
+   * Go to Settings > API Key
+   * Copy the key and set it as GOOGLE\_API\_KEY
+
+2. Google Custom Search Engine (CSE):
+
+   * Go to [https://programmablesearchengine.google.com/](https://programmablesearchengine.google.com/)
+   * Create a new search engine with image search enabled
+   * Use the CSE ID as GOOGLE\_CSE\_ID
+   * Generate an API key from [https://console.cloud.google.com/](https://console.cloud.google.com/) and use it as GOOGLE\_CSE\_API\_KEY
+
+3. Clerk Publishable Key:
+
+   * Go to [https://clerk.dev](https://clerk.dev) and create a project
+   * Copy the Frontend Publishable Key as VITE\_CLERK\_PUBLISHABLE\_KEY
+
+4. Meta Graph API (Instagram):
+
+   * Go to [https://developers.facebook.com/](https://developers.facebook.com/)
+   * Create an app and connect an Instagram Business Account
+   * Use Graph API Explorer to:
+
+     * Get a long-lived access token → ACCESS\_TOKEN
+     * Get your Instagram User ID → IG\_USER\_ID
+   * Required permissions: instagram\_basic, pages\_read\_engagement, pages\_manage\_posts, instagram\_content\_publish
+
+5. OpenAI API Key (Optional):
+
+   * Go to [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+   * Generate and use the key as OPENAI\_API\_KEY
+
+---
+
+LOCAL DEVELOPMENT
 
 1. Install dependencies
 
-# React frontend
+React frontend:
 cd landing-app
 npm install
 
-# Flask backend
+Flask backend:
 cd ../app1-backend
 pip install -r requirements.txt
 
-2. Run the apps
+2. Run the applications
 
-# Backend
+Backend:
 cd app1-backend
-python flask_app.py
+python flask\_app.py
 
-# Frontend (Vite)
+Frontend:
 cd ../landing-app
 npm run dev
 
-Open your browser and go to http://localhost:5173
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
 
-────────────────────────────
-🌐 Deployment on Vercel:
+---
 
-1. Push the landing-app/ to GitHub
-2. Import into vercel.com
-3. Set the following Vercel environment variables:
+DEPLOYMENT ON VERCEL
 
-VITE_CLERK_PUBLISHABLE_KEY
-VITE_BACKEND_URL
+To deploy landing-app:
 
-Framework: Vite  
-Build command: npm run build  
-Output directory: dist
+1. Push the landing-app folder to GitHub
+2. Import into Vercel
+3. Set environment variables:
 
-────────────────────────────
-👥 Team:
+   * VITE\_CLERK\_PUBLISHABLE\_KEY
+   * VITE\_BACKEND\_URL
+4. Framework: Vite
+5. Build Command: npm run build
+6. Output Directory: dist
 
-- Chinar Mhatre  
-- Simran Warang  
-- Riya Divekar
+---
+
+TEAM
+
+* Chinar Mhatre
+* Simran Warang
+* Riya Divekar
+
+---
+
+INTERNSHIP
+
+Organization: Digital Dojo Pvt. Ltd.
+Internship Period: 9th June 2025 – 30th June 2025
+College: VCET, Computer Engineering Department
+
+---
+
+LICENSE
+
+This project was developed as part of a student internship.
+All rights reserved to the respective contributors and Digital Dojo Pvt. Ltd.
+
